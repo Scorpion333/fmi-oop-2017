@@ -2,7 +2,7 @@
 #include"Vector3D.h"
 using namespace std;
 
-Vector3D operator - (Vector3D& v1, Vector3D& v2) {
+Vector3D operator - (const Vector3D& v1, const Vector3D& v2) {
 	Vector3D result;
 	result.x = v1.x - v2.x;
     result.y = v1.y - v2.y;
@@ -20,12 +20,10 @@ int main() {
 	ifstream f;
 	f.open(filename);
 
-	a.read_from_file(f);
-	b.read_from_file(f);
-	c.read_from_file(f);
+	f >> a >> b >> c;
 
-	// Vector3D d = a * 2 + b * 3 + c * (a * b);
-	// d.print();
+	Vector3D d = a * 2 + b * 3 + c * (a * b);
+	cout << d << '\n';
     
 	f.close();
 

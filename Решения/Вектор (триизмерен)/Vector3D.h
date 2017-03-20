@@ -13,31 +13,32 @@ public:
 	void set_x(double _x) {
 		x = _x;
 	}
-	double get_x() {
-		return x;
-	}
 	void set_y(double _y) {
 		y = _y;
-	}
-	double get_y() {
-		return y;
 	}
 	void set_z(double _z) {
 		z = _z;
 	}
-	double get_z() {
+    
+    double get_x() const {
+		return x;
+	}
+    double get_y() const {
+		return y;
+	}
+	double get_z() const {
 		return z;
 	}
 
 	// OPERATORS DEFINED AS METHODS
-	Vector3D operator + (Vector3D& other) {
+	Vector3D operator + (const Vector3D& other) {
 		Vector3D result;
 		result.x = x + other.x;
 		result.y = y + other.y;
 		result.z = z + other.z;
 		return result;
 	}
-	double operator * (Vector3D& other) {
+	double operator * (const Vector3D& other) {
 		return x * other.x + y * other.y + z * other.z;
 	}
 	Vector3D operator * (double n) {
@@ -48,40 +49,11 @@ public:
 		return result;
 	}
 
-	// INPUT AND OUTPUT METHODS - NO LONGER NEEDED
-	void print() {
-		cout << "(" << x << "," << y << "," << z << ")";
-	}
-	void read_from_file(char* filename) {
-		ifstream in;
-		in.open(filename);
-		char temp[8];
-		in >> temp;
-		x = temp[1] - '0';
-		y = temp[3] - '0';
-		z = temp[5] - '0';
-		in.close();
-	}
-	void write_in_file(char* filename) {
-		ofstream out;
-		out.open(filename);	
-		out << "(" << x << "," << y << "," << z << ")";
-		out.close();
-	}
-	void read_from_file(ifstream& in) {
-		char temp[8];
-		in >> temp;
-
-		x = temp[1] - '0';
-		y = temp[3] - '0';
-		z = temp[5] - '0';
-	}
-
 	// FRIENDZONE
-	friend Vector3D operator - (Vector3D& v1, Vector3D& v2);
+	friend Vector3D operator - (const Vector3D& v1, const Vector3D& v2);
 
 	friend istream& operator >> (istream& in, Vector3D& v);
-	friend ostream& operator << (ostream& out, Vector3D& v);
+	friend ostream& operator << (ostream& out, const Vector3D& v);
 };
 
 istream& operator >> (istream& in, Vector3D& v) {
@@ -96,7 +68,7 @@ istream& operator >> (istream& in, Vector3D& v) {
 	return in;
 }
 
-ostream& operator << (ostream& out, Vector3D& v) {
+ostream& operator << (ostream& out, const Vector3D& v) {
 	out << "(" << v.x << "," << v.y << "," << v.z << ")";
 	return out;
 }

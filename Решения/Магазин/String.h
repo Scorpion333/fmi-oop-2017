@@ -6,33 +6,61 @@ using namespace std;
 
 class String {
 private:
-	char arr[32];
+	char* arr;
 
 public:
-	void set_symbol(unsigned index, char sym) {
-		arr[index] = sym;
+	// CONSTRUCTORS
+	String() {
+		arr = new char[2];
+		arr[0] = 'X';
+		arr[1] = '\0';
 	}
-	char get_symbol(unsigned index) {
-		return arr[index];
+	String(const char* _arr) {
+		arr = new char[strlen(_arr) + 1];
+		strcpy(arr, _arr);
+	}
+	String(const String& other) {
+		arr = new char[strlen(other.arr) + 1];
+		strcpy(arr, other.arr);
 	}
 	
-	unsigned length() {
+	// OPERATORS =
+	// We can write a second operator = with char*
+	void operator = (const String& other) {
+		delete[] arr;
+		arr = new char[strlen(other.arr) + 1];
+		strcpy(arr, other.arr);
+	}
+	void operator = (const char* _arr) {
+		delete[] arr;
+		arr = new char[strlen(_arr) + 1];
+		strcpy(arr, _arr);
+	}
+	
+	// DESTRUCTOR
+	~String() {
+		delete[] arr;
+	}
+
+	// OTHER METHODS
+	unsigned length() const {
 		return strlen(arr);
 	}
-	bool operator == (String& other) {
+	bool operator == (const String& other) const {
 		return strcmp(arr, other.arr) == 0;
 	}
 
-	friend istream& operator >> (istream& in, String& str);
-	friend ostream& operator << (ostream& out, String& str);
+	// FRIENDZONE
+	friend ostream& operator << (ostream& out, const String& str);
 };
 
 istream& operator >> (istream& in, String& str) {
-	in >> str.arr;
+	char temp[100];
+	in >> temp;
+	str = temp;
 	return in;
 }
-
-ostream& operator << (ostream& out, String& str) {
+ostream& operator << (ostream& out, const String& str) {
 	out << str.arr;
 	return out;
 }

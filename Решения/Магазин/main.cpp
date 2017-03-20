@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	
+
 	OnlineStore store;
 
 	ifstream in;
@@ -15,13 +15,22 @@ int main() {
 	in >> goods_number;
 
 	Item current_item;
-
 	for (unsigned i = 0; i < goods_number; i++) {
-
-		// We still haven't written this operator.
-		// in >> current_item;
+		in >> current_item;
 		store.add(current_item);
 	}
+	double bill = 0;
+	unsigned order_size;
+	
+	in.close();
+	in.open("Order.txt");
+
+	in >> order_size;
+
+	for (unsigned i = 0; i < order_size; i++) {
+		// ...
+	}
+	// ...
 
 	return 0;
 }

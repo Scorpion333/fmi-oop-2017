@@ -2,14 +2,52 @@
 #include"Item.h"
 
 class OnlineStore {
-	Item goods[128];
-	unsigned size = 0;
+private:
+	Item* goods;
+	unsigned size;
+	unsigned capacity;
 
-public:
-	void add(Item& new_item) {
-		if (size >= 128)
+public: 
+	OnlineStore() {
+		capacity = 32;
+		goods = new Item[capacity];
+		size = 0;
+	}
+	OnlineStore(unsigned _capacity) {
+		capacity = _capacity;
+		goods = new Item[capacity];
+		size = 0;
+	}
+	OnlineStore(const OnlineStore& other) {
+		size = other.size;
+		capacity = other.capacity;
+		goods = new Item[capacity];
+		for (unsigned i = 0; i < size; i++) {
+			goods[i] = other.goods[i];
+		}
+	}
+	
+	void operator = (const OnlineStore& other) {
+		
+		delete[] goods;
+
+		size = other.size;
+		capacity = other.capacity;
+		goods = new Item[capacity];
+		
+		for (unsigned i = 0; i < size; i++) {
+			goods[i] = other.goods[i];
+		}
+	}
+
+	~OnlineStore() {
+		delete[] goods;
+	}
+
+	void add(const Item& new_item) {
+		if (size >= capacity) {
 			return;
-
+		}
 		goods[size] = new_item;
 		size++;
 	}
