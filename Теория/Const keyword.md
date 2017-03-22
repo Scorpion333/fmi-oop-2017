@@ -53,7 +53,8 @@
         int a = square(NINE);
     }
 
-В С++ обаче има обаче друг вид референции - const references.
+В С++ обаче има друг вид
+референции - [const references](https://github.com/Scorpion333/fmi-oop-2017/blob/master/Теория/Const%20references.md).
 Те могат да сочат както към константи, така и към променливи.
 
 ## Върнатите стойности на функциите се държат като константи
