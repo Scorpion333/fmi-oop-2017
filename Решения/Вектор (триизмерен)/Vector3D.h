@@ -20,10 +20,10 @@ public:
 		z = _z;
 	}
     
-    double get_x() const {
+	double get_x() const {
 		return x;
 	}
-    double get_y() const {
+	double get_y() const {
 		return y;
 	}
 	double get_z() const {
