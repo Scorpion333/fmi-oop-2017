@@ -9,17 +9,7 @@ private:
 	unsigned employees_number;
 	unsigned capacity;
 public:
-	void initialize(char* _name, unsigned _capacity) {
-		name = new char[strlen(_name) + 1];
-		strcpy(name, _name);
-		capacity = _capacity;
-		employees = new Programmer[capacity];
-		employees_number = 0;
-	}
-	void clear_memory() {
-		delete[] name;
-		delete[] employees;
-	}
+
 
 	// SETTERS AND GETTERS
 	void set_name(char* _name) {
