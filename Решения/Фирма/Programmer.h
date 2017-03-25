@@ -5,12 +5,46 @@ using namespace std;
 
 class Programmer {
 private:
-	char name[20];
+	char* name;
 	unsigned languages;
 	unsigned salary;
 public:
+	Programmer() {
+		name = new char[1];
+		name[0] = '\0';
+		languages = 0;
+		salary = 0;
+	}
+	Programmer(char* _name, unsigned _languages, unsigned _salary) {
+		name = new char[strlen(_name) + 1];
+		strcpy(name, _name);
+		languages =  _languages;
+		salary = _salary;
+	}
+	Programmer(const Programmer& other) {
+		name = new char[strlen(other.name) + 1];
+		strcpy(name, other.name);
+		languages = other.languages;
+		salary = other.salary;
+	}
+
+	void operator = (const Programmer& other) {
+		if (this != &other) {
+			delete[] name;
+			name = new char[strlen(other.name) + 1];
+			strcpy(name, other.name);
+			languages = other.languages;
+			salary = other.salary;
+		}
+	}
+	~Programmer() {
+		delete[] name;
+	}
+
 	// SETTERS
 	void set_name(char* _name) {
+		delete[] name;
+		name = new char[strlen(_name) + 1];
 		strcpy(name, _name);
 	}
 	void set_languages(unsigned _languages) {
@@ -21,16 +55,13 @@ public:
 	}
 
 	// GETTERS
-	char* get_name() {
-		char* result;
-		result = new char[strlen(name) + 1];
-		strcpy(result, name);
-		return result;
+	const char* get_name() const {
+		return name;
 	}
-	unsigned get_languages() {
+	unsigned get_languages() const {
 		return languages;
 	}
-	unsigned get_salary() {
+	unsigned get_salary() const {
 		return salary;
 	}
 
