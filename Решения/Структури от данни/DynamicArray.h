@@ -1,0 +1,64 @@
+#pragma once
+
+template<typename T>
+class DynamicArray {
+private:
+	T* arr;
+	unsigned size;
+	unsigned capacity;
+
+	void resize() {
+		capacity *= 2;
+		T* temp = new T[capacity];
+		for (unsigned i = 0; i < size; i++) {
+			temp[i] = arr[i];
+		}
+		delete[] arr;
+		arr = temp;
+	}
+	void copy(const DynamicArray<T>& other) {
+		size = other.size;
+		capacity = other.capacity;
+		arr = new T[capacity];
+		for (unsigned i = 0; i < size; i++) {
+			arr[i] = other.arr[i];
+		}
+	}
+public:
+	DynamicArray() {
+		size = 0;
+		capacity = 20;
+		arr = new T[capacity];
+	}
+	DynamicArray(const DynamicArray<T>& other) {
+		copy(other);
+	}
+	void operator = (const DynamicArray<T>& other) {
+		if (this != &other) {
+			delete[] arr;
+			copy(other);
+		}
+	}
+	~DynamicArray() {
+		delete[] arr;
+	}
+	
+	void push_back(const T& new_element) {
+		if (size == capacity) {
+			resize();
+		}
+		arr[size] = new_element;
+		size++;
+	}
+	
+	T& operator [] (unsigned i) {
+		return arr[i];
+	}
+	T operator[](unsigned i) const {
+		return arr[i];
+	}
+
+	unsigned get_size() const {
+		return size;
+	}
+};
