@@ -38,7 +38,7 @@ public:
 			delete[] arr;
 			copy(other);
 		}
-    	return *this;
+		return *this;
 	}
 	~DynamicArray() {
 		delete[] arr;

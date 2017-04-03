@@ -47,7 +47,7 @@ public:
 			delete[] employees;
 			copy(other);
 		}
-    	return *this;
+		return *this;
 	}
 	~Firm() {
 		delete[] name;

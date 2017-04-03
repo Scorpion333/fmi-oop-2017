@@ -35,11 +35,9 @@ public:
 		return *this;
 	}
 	String& operator = (char* _arr) {
-		if(this != &other) {
-			delete[] arr;
-			arr = new char[strlen(_arr) + 1];
-			strcpy(arr, _arr);
-		}
+		delete[] arr;
+		arr = new char[strlen(_arr) + 1];
+		strcpy(arr, _arr);
 		return *this;
 	}
 	
