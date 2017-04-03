@@ -33,11 +33,12 @@ public:
 	DynamicArray(const DynamicArray<T>& other) {
 		copy(other);
 	}
-	void operator = (const DynamicArray<T>& other) {
+	DynamicArray& operator = (const DynamicArray<T>& other) {
 		if (this != &other) {
 			delete[] arr;
 			copy(other);
 		}
+        return *this;
 	}
 	~DynamicArray() {
 		delete[] arr;

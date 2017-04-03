@@ -38,7 +38,7 @@ public:
 		}
 	}
 	
-	void operator = (const OnlineStore& other) {	
+	OnlineStore& operator = (const OnlineStore& other) {	
 		if (this != &other) {		
 			delete[] goods;
 			size = other.size;
@@ -48,6 +48,7 @@ public:
 				goods[i] = other.goods[i];
 			}
 		}
+        return *this;
 	}
 	~OnlineStore() {
 		delete[] goods;

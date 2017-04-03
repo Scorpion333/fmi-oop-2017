@@ -28,7 +28,7 @@ public:
 		salary = other.salary;
 	}
 
-	void operator = (const Programmer& other) {
+	Programmer& operator = (const Programmer& other) {
 		if (this != &other) {
 			delete[] name;
 			name = new char[strlen(other.name) + 1];
@@ -36,6 +36,7 @@ public:
 			languages = other.languages;
 			salary = other.salary;
 		}
+        return *this;
 	}
 	~Programmer() {
 		delete[] name;

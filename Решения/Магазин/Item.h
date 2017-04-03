@@ -26,10 +26,11 @@ public:
 		quantity = other.quantity;
 		price = other.price;
 	}
-	void operator = (const Item& other) {
+	Item& operator = (const Item& other) {
 		name = other.name;
 		quantity = other.quantity;
 		price = other.price;
+        return *this;
 	}
 
 	friend istream& operator >> (istream& in, Item& item);

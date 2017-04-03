@@ -41,12 +41,13 @@ public:
 		copy(other);
 	}
 	
-	void operator = (const Firm& other) {
+	Firm& operator = (const Firm& other) {
 		if (this != &other) {
 			delete[] name;
 			delete[] employees;
 			copy(other);
 		}
+        return *this;
 	}
 	~Firm() {
 		delete[] name;
