@@ -48,7 +48,7 @@ public:
 				goods[i] = other.goods[i];
 			}
 		}
-        return *this;
+		return *this;
 	}
 	~OnlineStore() {
 		delete[] goods;

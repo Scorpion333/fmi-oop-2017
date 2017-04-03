@@ -36,7 +36,7 @@ public:
 			languages = other.languages;
 			salary = other.salary;
 		}
-        return *this;
+    	return *this;
 	}
 	~Programmer() {
 		delete[] name;

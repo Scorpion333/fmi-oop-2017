@@ -30,7 +30,7 @@ public:
 		name = other.name;
 		quantity = other.quantity;
 		price = other.price;
-        return *this;
+		return *this;
 	}
 
 	friend istream& operator >> (istream& in, Item& item);

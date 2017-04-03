@@ -27,21 +27,21 @@ public:
 	// OPERATORS =
 	// We can write a second operator = with char*
 	String& operator = (const String& other) {
-        if(this != &other) {
-            delete[] arr;
-            arr = new char[strlen(other.arr) + 1];
-            strcpy(arr, other.arr);
-        }
-        return *this;
-    }
-    String& operator = (char* _arr) {
-        if(this != &other) {
-            delete[] arr;
-            arr = new char[strlen(_arr) + 1];
-            strcpy(arr, _arr);
-        }
-        return *this;
-    }
+		if(this != &other) {
+			delete[] arr;
+			arr = new char[strlen(other.arr) + 1];
+			strcpy(arr, other.arr);
+		}
+		return *this;
+	}
+	String& operator = (char* _arr) {
+		if(this != &other) {
+			delete[] arr;
+			arr = new char[strlen(_arr) + 1];
+			strcpy(arr, _arr);
+		}
+		return *this;
+	}
 	
 	// DESTRUCTOR
 	~String() {
