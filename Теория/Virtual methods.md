@@ -31,16 +31,16 @@
         Person p;
         Student s;
 
-        cout << p.get_class() << '\n';		// За Person се вика метода на Person.
-        cout << s.get_class() << '\n';		// За Student се вика метода на Student.
+        cout << p.get_class() << '\n';	    // За Person се вика метода на Person.
+        cout << s.get_class() << '\n';	    // За Student се вика метода на Student.
 
         Person* arr[2];
         arr[0] = &p;
         arr[1] = &s;
 
-        cout << arr[0]->get_class() << '\n';	// За Person*, който сочи Person се метода на Person.
+        cout << arr[0]->get_class() << '\n';    // За Person*, който сочи Person се метода на Person.
 
-        cout << arr[1]->get_class() << '\n';	// Имаме Person*, който сочи Student - ако get_class()
+        cout << arr[1]->get_class() << '\n';    // Имаме Person*, който сочи Student - ако get_class()
                                                 // e виртуален, се извиква метода на Student, но ако
                                                 // не е виртуален, се изпълнява метода на Person.
     }
