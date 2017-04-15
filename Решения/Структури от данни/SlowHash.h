@@ -16,7 +16,7 @@ public:
 			}
 		}
 		keys.push_back(key);
-		values.push_bakc(value);
+		values.push_back(value);
 	}
 	bool has_key() const {
 		for (unsigned i = 0; i < keys.get_size(); i++) {

@@ -1,4 +1,5 @@
 #pragma once
+const unsigned MIN_CAPACITY = 16;
 
 template<typename T>
 class DynamicArray {
@@ -27,7 +28,7 @@ private:
 public:
 	DynamicArray() {
 		size = 0;
-		capacity = 20;
+		capacity = MIN_CAPACITY;
 		arr = new T[capacity];
 	}
 	DynamicArray(const DynamicArray<T>& other) {
