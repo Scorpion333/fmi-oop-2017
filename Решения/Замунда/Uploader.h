@@ -3,7 +3,7 @@
 
 class Uploader : public User {
 public:
-	string rank() {
-		return "Uploader";
-	}
+	Uploader(const string& _username = "", const string& _password = "");
+	string rank();
+	void upload(DynamicArray<Banana*>& bananas_in_zamunda);
 };
