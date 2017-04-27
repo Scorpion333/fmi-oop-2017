@@ -1,9 +1,13 @@
 #pragma once
+
 #include<string>
+
 #include"DynamicArray.h"
 #include"Banana.h"
 #include"User.h"
+
 using std::string;
+
 
 Banana::Banana(const string& _name, unsigned _size) : name(_name), size(_size), seeders() {}
 

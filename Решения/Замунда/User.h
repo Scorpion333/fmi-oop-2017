@@ -20,7 +20,7 @@ public:
 	double rating();
 	void download(Banana* banana);
 	void seed(unsigned megabytes);
-    void delete_banana(const string& banana_name);
+	void delete_banana(const string& banana_name);
     
 	virtual string rank();
     

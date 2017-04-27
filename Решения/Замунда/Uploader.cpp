@@ -1,12 +1,16 @@
 #pragma once
+
 #include<iostream>
 #include<string>
+
 #include"DynamicArray.h"
 #include"Uploader.h"
 #include"Banana.h"
+
 using std::cin;
 using std::cout;
 using std::string;
+
 
 Uploader::Uploader(const string& _username, const string& _password) : User(_username, _password) {}
 

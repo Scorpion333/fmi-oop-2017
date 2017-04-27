@@ -10,7 +10,7 @@ class Banana {
 	unsigned size;
 	DynamicArray<User*> seeders;
 public:
-    Banana(const string& _name, unsigned _size);
+	Banana(const string& _name, unsigned _size);
 	string get_name();
 	unsigned get_size();
 	void be_downloaded_by(User* user);

@@ -1,13 +1,17 @@
 #pragma once
+
 #include<iostream>
+
 #include"DynamicArray.h"
 #include"User.h"
 #include"Admin.h"
 #include"Banana.h"
 #include"Zamunda.h"
+
 using std::cin;
 using std::cout;
 using std::string;
+
 
 Zamunda::Zamunda() : users(), bananas(), current_user(NULL) {
 	users.push_back(new Admin("founder", "founder"));
@@ -32,7 +36,7 @@ void Zamunda::login() {
 		cout << "Enter password: ";
 		cin >> password;
 		
-        for (unsigned i = 0; i < users.get_size(); i++) {
+		for (unsigned i = 0; i < users.get_size(); i++) {
 			if (users[i]->match(username)) {
 				if (users[i]->match(username, password)) {
 					current_user = users[i];

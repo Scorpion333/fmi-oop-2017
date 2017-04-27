@@ -6,9 +6,7 @@ using std::cout;
 using std::string;
 
 int main() {
-	
 	Zamunda site;
-	
 	string command;
 	
 	while (command != "bye") {
@@ -35,9 +33,7 @@ int main() {
 		else if (command == "bye")
 			cout << "Closing site.\n";
 		
-		else
-			cout << "Invalid command.\n";
+		else cout << "Invalid command.\n";
 	}
-	
 	return 0;
 }

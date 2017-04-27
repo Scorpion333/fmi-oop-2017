@@ -1,11 +1,15 @@
 #pragma once
+
 #include<iostream>
 #include<string>
+
 #include"DynamicArray.h"
 #include"User.h"
 #include"Banana.h"
+
 using std::string;
 using std::cout;
+
 
 User::User(const string& _username, const string& _password)
     : username(_username), password(_password), downloaded(0), uploaded(0), bananas() {}
