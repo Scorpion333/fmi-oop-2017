@@ -44,8 +44,6 @@ public:
 };
 
 
-//////////////////////////////////
-
 
 template<typename T>
 void DynamicArray<T>::resize() {
