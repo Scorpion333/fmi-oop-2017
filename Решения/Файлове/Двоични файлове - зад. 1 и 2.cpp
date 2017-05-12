@@ -34,11 +34,11 @@ int main() {
 	// Writing in binary is with "write"
 	ofstream bin_out(binary_file_name, ios::binary);
 	for (unsigned i = 0; i < n; i++) {
-		bin_out.write((char*)arr, sizeof(int));		// arr is pointer, so no & before it!
+		bin_out.write((char*)(arr + i), sizeof(int));		// (arr + i) is pointer, so no & before it!
 	}
 
 	// As array elements are "neighbours" in memory, there is another nice way to write the array in binary:
-	// bin_out.write((char*)arr, n * sizeof(int));
+    // bin_out.write((char*)arr, n * sizeof(int));
 
 	// It's a good practice to close the streams
 	txt_in.close();
