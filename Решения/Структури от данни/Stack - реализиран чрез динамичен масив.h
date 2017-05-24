@@ -1,4 +1,6 @@
-#pragma once
+#ifndef STACK_H
+#define STACK_H
+
 const size_t DEFAULT_CAPACITY = 16;
 
 template<typename T>
@@ -53,12 +55,16 @@ void Stack<T>::resize() {
 	arr = temp;
 }
 
+// Undefined behavior if the stack is empty
 template<typename T>
 void Stack<T>::pop() {
 	size--;
 }
 
+// Undefined behavior if the stack is empty
 template<typename T>
 T Stack<T>::top() const {
 	return arr[size - 1];
 }
+
+#endif
