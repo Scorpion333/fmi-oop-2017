@@ -11,9 +11,8 @@ private:
 public:
 	// CONSTRUCTORS
 	String() {
-		arr = new char[2];
-		arr[0] = 'X';
-		arr[1] = '\0';
+		arr = new char[1];
+		arr[0] = '\0';
 	}
 	String(const char* _arr) {
 		arr = new char[strlen(_arr) + 1];
