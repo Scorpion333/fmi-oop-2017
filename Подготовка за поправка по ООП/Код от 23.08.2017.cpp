@@ -84,7 +84,7 @@ istream& operator >> (istream& in, Student& st) {
 
 	in >> st.fn >> st.grade;
 
-	in.get();					// Newline character after the grade also caused trouble.
+	in.ignore();					// Newline character after the grade also caused trouble.
 	return in;
 }
 
